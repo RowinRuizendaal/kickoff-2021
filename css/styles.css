@@ -1,14 +1,149 @@
-:root {
-  --primary:#FFF;
-  --secondary:#000;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #e0e0e0;
 }
 
-* {
-  box-sizing:border-box;
-  scroll-behavior: smooth;
+.cardBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1000px;
 }
 
-html {
-  background: var(--secondary);
-  color: var(--primary);
+.cardBox .card {
+  position: relative;
+  width: 525px;
+  height: 300px;
+  background: #262626;
+  transform-style: preserve-3d;
+  transition: 1s ease;
+}
+
+.cardBox .card .card-front,
+.cardBox .card .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.cardBox .card .card-front {
+  display: flex;
+  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.cardBox .card .card-front .content {
+  text-align: center;
+}
+
+.cardBox .card .card-front img {
+  width: 100px;
+  height: 100px;
+}
+
+.cardBox .card .card-front h3 {
+  margin: 20px 0 0;
+  padding: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #fff;
+}
+
+.cardBox .card .card-back {
+  background: #fff;
+  color: #262626;
+}
+
+.cardBox .card .card-back .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardBox .card .card-back .content .logo {
+  padding: 40px 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBox .card .card-back .content .logo img {
+  width: 120px;
+  height: 100px;
+  padding-right: 20px;
+  border-right: 1px solid #000;
+  object-fit: cover;
+}
+
+.cardBox .card .card-back .content .logo h2 {
+  margin: 0;
+  padding: 0;
+  padding-left: 20px; 
+  text-transform: uppercase;
+}
+
+.cardBox .card .card-back .content ul {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  background: #262626;
+  border-top: 10px solid #fc2827;
+}
+
+
+.cardBox .card .card-back .content ul li {
+  list-style: none;
+  color: #fff;
+  padding: 6px 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.cardBox .card .card-back .content ul li span:nth-child(1) {
+  width: 20px;
+  display: inline-block;
+  
+}
+
+.cardBox:hover .card {
+  transform: rotateY(180deg);
+}
+
+.cardBox .card .card-back {
+  transform: rotateY(180deg);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.ml {
+  color: red;
 }
